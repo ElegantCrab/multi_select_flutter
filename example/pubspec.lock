@@ -84,10 +84,12 @@ packages:
   multi_select_flutter:
     dependency: "direct main"
     description:
-      name: multi_select_flutter
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.1.7"
+      path: "."
+      ref: HEAD
+      resolved-ref: "9c3cff3ca93f658ac608bf77b3bb2a9735666fe7"
+      url: "https://github.com/ElegantCrab/multi_select_flutter.git"
+    source: git
+    version: "3.1.8"
   path:
     dependency: transitive
     description:

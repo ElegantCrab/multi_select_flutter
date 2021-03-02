@@ -72,6 +72,9 @@ class MultiSelectDialog<V> extends StatefulWidget with MultiSelectActions<V> {
   /// Set the color of the check in the checkbox
   final Color checkColor;
 
+  /// Set the limit for items selected at once
+  final int selectLimit;
+
   MultiSelectDialog({
     @required this.items,
     @required this.initialValue,
@@ -95,6 +98,7 @@ class MultiSelectDialog<V> extends StatefulWidget with MultiSelectActions<V> {
     this.searchTextStyle,
     this.selectedItemsTextStyle,
     this.checkColor,
+    this.selectLimit
   });
 
   @override
@@ -105,6 +109,7 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   List<V> _selectedValues = [];
   bool _showSearch = false;
   List<MultiSelectItem<V>> _items;
+  int _selectLimit;
 
   _MultiSelectDialogState(this._items);
 
@@ -112,6 +117,11 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
     super.initState();
     if (widget.initialValue != null) {
       _selectedValues.addAll(widget.initialValue);
+    }
+    if(widget.selectLimit == null){
+      _selectLimit = _selectedValues.length;
+    } else {
+      _selectLimit = widget.selectLimit;
     }
   }
 
@@ -137,8 +147,10 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
         controlAffinity: ListTileControlAffinity.leading,
         onChanged: (checked) {
           setState(() {
-            _selectedValues = widget.onItemCheckedChange(
-                _selectedValues, item.value, checked);
+            if(_selectedValues.length+1 != _selectLimit){
+              _selectedValues = widget.onItemCheckedChange(
+                  _selectedValues, item.value, checked);
+            }
           });
           if (widget.onSelectionChanged != null) {
             widget.onSelectionChanged(_selectedValues);

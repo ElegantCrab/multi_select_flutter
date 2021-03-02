@@ -13,7 +13,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  multi_select_flutter: ^3.1.7
+  multi_select_flutter:
+    git:
+      url: https://github.com/ElegantCrab/multi_select_flutter.git
 
 
   # The following adds the Cupertino Icons font to your application.
