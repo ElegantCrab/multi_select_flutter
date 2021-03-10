@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   final dialog = MultiSelectDialog(
                     items: _items,
                     initialValue: [],
-                    selectLimit: 1,
+                    // selectLimit: 1,
                     title: Text("Animals"),
                     onConfirm: (results){
                       _selectedAnimals1 = results;
