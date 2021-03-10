@@ -120,7 +120,7 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
       _selectedValues.addAll(widget.initialValue);
     }
     if(widget.selectLimit == null){
-      _selectLimit = _selectedValues.length;
+      _selectLimit = _items.length;
     } else {
       _selectLimit = widget.selectLimit;
     }
