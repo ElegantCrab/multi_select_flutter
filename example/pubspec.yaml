@@ -13,6 +13,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+    
   multi_select_flutter:
     git:
       url: https://github.com/ElegantCrab/multi_select_flutter.git

@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final _items = _animals
       .map((animal) => MultiSelectItem<Animal>(animal, animal.name))
       .toList();
+  List<Animal> _selectedAnimals1 = [];
   List<Animal> _selectedAnimals = [];
   List<Animal> _selectedAnimals2 = [];
   List<Animal> _selectedAnimals3 = [];
@@ -94,6 +95,23 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.all(20),
           child: Column(
             children: <Widget>[
+              SizedBox(height: 40),
+              FlatButton(
+                child: Text("Press me!"),
+                onPressed: (){
+                  final dialog = MultiSelectDialog(
+                    items: _items,
+                    initialValue: [],
+                    selectLimit: 1,
+                    title: Text("Animals"),
+                    onConfirm: (results){
+                      _selectedAnimals1 = results;
+                    },
+                  );
+
+                  showDialog(context: context, builder: (_) => dialog);
+                },
+              ),
               SizedBox(height: 40),
               //################################################################################################
               // Rounded blue MultiSelectDialogField

@@ -110,6 +110,7 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   bool _showSearch = false;
   List<MultiSelectItem<V>> _items;
   int _selectLimit;
+  List<V> _limitedSelectedValues = [];
 
   _MultiSelectDialogState(this._items);
 
@@ -147,10 +148,15 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
         controlAffinity: ListTileControlAffinity.leading,
         onChanged: (checked) {
           setState(() {
-            if(_selectedValues.length+1 != _selectLimit){
-              _selectedValues = widget.onItemCheckedChange(
+            if(_selectedValues.length == _selectLimit){
+              if(checked == false){
+                _selectedValues = widget.onItemCheckedChange(
                   _selectedValues, item.value, checked);
+              }
+              return;
             }
+            _selectedValues = widget.onItemCheckedChange(
+                _selectedValues, item.value, checked);
           });
           if (widget.onSelectionChanged != null) {
             widget.onSelectionChanged(_selectedValues);
