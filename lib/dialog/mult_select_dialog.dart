@@ -274,13 +274,15 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
         width: MediaQuery.of(context).size.width * 0.72,
         child: widget.listType == null ||
             widget.listType == MultiSelectListType.LIST
-        ? ListView.builder(
+        ? Flexible(
+          child: ListView.builder(
             shrinkWrap: true,
             itemCount: _items.length,
             itemBuilder: (context, index) {
               return _buildListItem(_items[index]);
             },
           )
+        )
         : SingleChildScrollView(
             child: Wrap(
               children: _items.map(_buildChipItem).toList(),
