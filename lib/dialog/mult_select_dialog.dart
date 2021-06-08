@@ -110,7 +110,7 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   bool _showSearch = false;
   List<MultiSelectItem<V>> _items;
   int _selectLimit;
-  // List<V> _limitedSelectedValues = [];
+  // List<V> _limitedSelectedValues = [];f
 
   _MultiSelectDialogState(this._items);
 
