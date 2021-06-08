@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
   "flutterSdkVersion": "2.0.5",
   "flavors": {}
+=======
+  "flutterSdkVersion": "stable"
+>>>>>>> ce4793fc7c94485fc850868b15c3cb7fc8264af0
 }

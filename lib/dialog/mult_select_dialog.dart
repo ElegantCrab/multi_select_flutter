@@ -110,7 +110,10 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
   bool _showSearch = false;
   List<MultiSelectItem<V>> _items;
   int _selectLimit;
+<<<<<<< HEAD
   // List<V> _limitedSelectedValues = [];f
+=======
+>>>>>>> ce4793fc7c94485fc850868b15c3cb7fc8264af0
 
   _MultiSelectDialogState(this._items);
 
@@ -275,13 +278,15 @@ class _MultiSelectDialogState<V> extends State<MultiSelectDialog<V>> {
         width: MediaQuery.of(context).size.width * 0.72,
         child: widget.listType == null ||
             widget.listType == MultiSelectListType.LIST
-        ? ListView.builder(
+        ? Flexible(
+          child: ListView.builder(
             shrinkWrap: true,
             itemCount: _items.length,
             itemBuilder: (context, index) {
               return _buildListItem(_items[index]);
             },
           )
+        )
         : SingleChildScrollView(
             child: Wrap(
               children: _items.map(_buildChipItem).toList(),
